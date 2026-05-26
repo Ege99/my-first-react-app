@@ -1,4 +1,4 @@
-name: First CI
+name: React CI
 
 on:
   push:
@@ -9,8 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Repo kodunu indir
         uses: actions/checkout@v4
 
-      - name: Print message
-        run: echo "GitHub Actions çalıştı 🚀"
+      - name: Node kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Paketleri yükle
+        run: npm install
+
+      - name: Projeyi build et
+        run: npm run build
