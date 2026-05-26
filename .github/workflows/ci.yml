@@ -2,7 +2,7 @@ name: React CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,11 +15,11 @@ jobs:
       - name: Node kur
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Paketleri yükle
-        run: npm ci
+        run: npm install
 
-      - name: Projeyi build et
+      - name: Build al
         run: npm run build
